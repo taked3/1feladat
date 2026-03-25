@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fejfájás.hu – Nézd meg, mások is így érzik-e magukat a közeledben!" />
+  <meta name="theme-color" content="#667eea" />
+  <meta property="og:title" content="Fejfájás.hu" />
+  <meta property="og:description" content="Mások is így érzik magukat a közeledben?" />
+  <title>Fejfájás.hu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header>
+      <span class="header-icon" aria-hidden="true">🤕</span>
+      <h1>Fejfájás.hu</h1>
+      <p class="tagline">Mások is így érzik magukat?</p>
+    </header>
+
+    <main>
+
+      <!-- ── Form section ─────────────────────────────────────────── -->
+      <section id="formSection" class="card" aria-label="Tünetek megadása">
+        <p class="form-hint">
+          Add meg az aktuális állapotod – megmutatjuk, mennyien érzik így magukat a közeledben.
+        </p>
+
+        <!-- Fejfájás slider -->
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <label for="fejfajas">
+              <span class="label-icon" aria-hidden="true">🧠</span>
+              Fejfájás
+            </label>
+            <span class="value-badge" id="fejfajasValueBadge" aria-live="polite">0</span>
+          </div>
+          <div class="slider-container">
+            <span class="scale-label" aria-hidden="true">0</span>
+            <input
+              type="range"
+              id="fejfajas"
+              min="0" max="10" value="0"
+              class="slider"
+              aria-label="Fejfájás mértéke 0-tól 10-ig"
+            />
+            <span class="scale-label" aria-hidden="true">10</span>
+          </div>
+          <div class="scale-hints" aria-hidden="true">
+            <span>Nincs</span><span>Elviselhetetlen</span>
+          </div>
+        </div>
+
+        <!-- Fáradtság slider -->
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <label for="faradsag">
+              <span class="label-icon" aria-hidden="true">😴</span>
+              Fáradtság
+            </label>
+            <span class="value-badge" id="faradsagValueBadge" aria-live="polite">0</span>
+          </div>
+          <div class="slider-container">
+            <span class="scale-label" aria-hidden="true">0</span>
+            <input
+              type="range"
+              id="faradsag"
+              min="0" max="10" value="0"
+              class="slider"
+              aria-label="Fáradtság mértéke 0-tól 10-ig"
+            />
+            <span class="scale-label" aria-hidden="true">10</span>
+          </div>
+          <div class="scale-hints" aria-hidden="true">
+            <span>Éber</span><span>Kimerült</span>
+          </div>
+        </div>
+
+        <!-- Location status (hidden until submit is clicked) -->
+        <div id="locationStatus" class="location-status" aria-live="polite" hidden>
+          <span id="locationIcon" class="location-icon" aria-hidden="true">📡</span>
+          <span id="locationText">Helymeghatározás…</span>
+        </div>
+
+        <button id="submitBtn" class="btn-primary" type="button">
+          Megnézem! 🔍
+        </button>
+      </section>
+
+      <!-- ── Loading section ───────────────────────────────────────── -->
+      <section id="loadingSection" class="card card-centered" aria-live="polite" aria-label="Betöltés" hidden>
+        <div class="loader" role="status" aria-label="Betöltés folyamatban"></div>
+        <p class="loading-text">Adatok lekérése…</p>
+      </section>
+
+      <!-- ── Result section ────────────────────────────────────────── -->
+      <section id="resultSection" class="card" aria-label="Eredmény" hidden>
+        <div class="result-icon" id="resultIcon" aria-hidden="true"></div>
+        <h2 class="result-title" id="resultTitle"></h2>
+        <p class="result-detail" id="resultDetail"></p>
+        <p class="result-meta" id="resultMeta"></p>
+        <button id="retryBtn" class="btn-secondary" type="button">↩ Újra</button>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>Anonim · Helyadatod nem kerül személyhez rendelve</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
