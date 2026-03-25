@@ -5,3 +5,6 @@ node_modules/
 data.json
 .env
 .env.local
+
+# Local Netlify folder
+.netlify
